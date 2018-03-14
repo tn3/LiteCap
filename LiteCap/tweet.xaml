@@ -1,0 +1,21 @@
+﻿<Window x:Name="tweetWindow" x:Class="LiteCap.tweet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LiteCap"
+        mc:Ignorable="d"
+        Title="tweet" Height="227.273" Width="300" SizeToContent="Width" WindowStyle="ToolWindow" Loaded="tweetWindow_Loaded" ResizeMode="NoResize" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Topmost="True">
+    <Grid Width="294" Margin="0,0,0,-1">
+        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Margin="10,10,10,43" FontFamily="Meiryo UI" FontSize="16" MaxLength="116" KeyDown="textBox_KeyDown" AcceptsReturn="True">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.65"/>
+            </TextBox.Background>
+        </TextBox>
+        <Button x:Name="button" Content="Tweet" Margin="10,0,150,7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Meiryo UI" FontSize="21.333" VerticalAlignment="Bottom" Click="button_Click_1"/>
+        <ComboBox x:Name="comboBox" Margin="150,0,10,7" VerticalAlignment="Bottom" Height="31" SelectionChanged="comboBox_SelectionChanged">
+            <Button Background="{x:Null}" Content="New Account" FontSize="21.333" FontFamily="Meiryo UI" BorderBrush="{x:Null}" Click="Button_Click"/>
+        </ComboBox>
+
+    </Grid>
+</Window>

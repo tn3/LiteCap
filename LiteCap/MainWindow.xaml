@@ -1,0 +1,13 @@
+﻿<Window x:Name="windowmain" x:Class="LiteCap.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LiteCap"
+        mc:Ignorable="d"
+        Title="MainWindow" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" Topmost="True" WindowState="Maximized" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseMove="Window_MouseMove" Margin="0" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseRightButtonDown="windowmain_MouseRightButtonDown" MouseLeave="windowmain_MouseLeave" DpiChanged="windowmain_DpiChanged" Loaded="windowmain_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="White" Opacity="0.3"/>
+    </Window.Background>
+    <Grid x:Name="mainGrid"/>
+</Window>
