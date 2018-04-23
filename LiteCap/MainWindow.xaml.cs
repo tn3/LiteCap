@@ -106,7 +106,7 @@ namespace LiteCap
                     Directory.CreateDirectory((savedir2));
                 }
                 //ファイルパス指定
-                string s2 = "savedir2" + "\\" + capfile;
+                string s2 = savedir2 + "\\" + capfile;
                 //画像が赤くなるバグを回避
                 await Task.Run(() => System.Threading.Thread.Sleep(100));
                 //Console.WriteLine(dpiX.ToString());
