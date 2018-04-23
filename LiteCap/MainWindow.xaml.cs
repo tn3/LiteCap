@@ -88,6 +88,12 @@ namespace LiteCap
                 redCaptureArea.Fill = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
                 redCaptureArea.StrokeThickness = 0;
                 string s = System.IO.Path.GetTempFileName();
+                //保存ファイル名取得
+                DateTime time = DateTime.Now;
+                string captime = time.ToString("yyyy-MM-dd_mmss-fff");
+                string capfile = captime + ".png";
+                string capdir = "saveimg";
+                string s2 = capdir + "\\" + capfile;
                 //画像が赤くなるバグを回避
                 await Task.Run(() => System.Threading.Thread.Sleep(100));
                 //Console.WriteLine(dpiX.ToString());
@@ -99,6 +105,7 @@ namespace LiteCap
                     graph.CopyFromScreen(new System.Drawing.Point(Convert.ToInt32(fx /* dpiX*/), Convert.ToInt32(fy /* dpiY*/)), new System.Drawing.Point(), bmp.Size);
                     bmp.SetPixel(0, 0, System.Drawing.Color.FromArgb(0, 0, 0, 0));
                     bmp.Save(s, System.Drawing.Imaging.ImageFormat.Png);
+                    bmp.Save(s2, System.Drawing.Imaging.ImageFormat.Png);
                 }
                 var w = new tweet();
                 w.filepath = s;
