@@ -93,11 +93,11 @@ namespace LiteCap
                 string s = System.IO.Path.GetTempFileName();
                 //保存ファイル名取得
                 DateTime time = DateTime.Now;
-                string captime = time.ToString("yyyy-MM-dd_mmss-fff");
+                string captime = time.ToString("yyyy-MM-dd_HHmmss-fff");
                 string capfile = captime + ".png";
                 //保存場所指定
                 string savedir2 = "saveimg";
-                //存在確認
+                //存在確認Da
                 if (System.IO.File.Exists(savedir2))
                 {
                 }
