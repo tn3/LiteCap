@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -90,14 +91,18 @@ namespace LiteCap
                 windowmain.Background.Opacity = 0.0;
                 redCaptureArea.Fill = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
                 redCaptureArea.StrokeThickness = 0;
-                string s = System.IO.Path.GetTempFileName();
+
                 //保存ファイル名取得
                 DateTime time = DateTime.Now;
                 string captime = time.ToString("yyyy-MM-dd_HHmmss-fff");
                 string capfile = captime + ".png";
                 //保存場所指定
-                string savedir2 = "saveimg";
-                //存在確認Da
+                string picpath= Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                Console.WriteLine(picpath);
+                string savedir2 = picpath + "\\LiteCap";
+                //ファイルパス指定
+                string s = savedir2 + "\\" + capfile;
+                //存在確認
                 if (System.IO.File.Exists(savedir2))
                 {
                 }
@@ -105,8 +110,6 @@ namespace LiteCap
                 {
                     Directory.CreateDirectory((savedir2));
                 }
-                //ファイルパス指定
-                string s2 = savedir2 + "\\" + capfile;
                 //画像が赤くなるバグを回避
                 await Task.Run(() => System.Threading.Thread.Sleep(100));
                 //Console.WriteLine(dpiX.ToString());
@@ -118,7 +121,6 @@ namespace LiteCap
                     graph.CopyFromScreen(new System.Drawing.Point(Convert.ToInt32(fx /* dpiX*/), Convert.ToInt32(fy /* dpiY*/)), new System.Drawing.Point(), bmp.Size);
                     bmp.SetPixel(0, 0, System.Drawing.Color.FromArgb(0, 0, 0, 0));
                     bmp.Save(s, System.Drawing.Imaging.ImageFormat.Png);
-                    bmp.Save(s2, System.Drawing.Imaging.ImageFormat.Png);
                 }
                 var w = new tweet();
                 w.filepath = s;
