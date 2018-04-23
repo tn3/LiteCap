@@ -5,6 +5,9 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Linq;
+using System.Configuration;
+using System.IO;
 
 namespace LiteCap
 {
@@ -92,8 +95,18 @@ namespace LiteCap
                 DateTime time = DateTime.Now;
                 string captime = time.ToString("yyyy-MM-dd_mmss-fff");
                 string capfile = captime + ".png";
-                string capdir = "saveimg";
-                string s2 = capdir + "\\" + capfile;
+                //保存場所指定
+                string savedir2 = "saveimg";
+                //存在確認
+                if (System.IO.File.Exists(savedir2))
+                {
+                }
+                else
+                {
+                    Directory.CreateDirectory((savedir2));
+                }
+                //ファイルパス指定
+                string s2 = "savedir2" + "\\" + capfile;
                 //画像が赤くなるバグを回避
                 await Task.Run(() => System.Threading.Thread.Sleep(100));
                 //Console.WriteLine(dpiX.ToString());
